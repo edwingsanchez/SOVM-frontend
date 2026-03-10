@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Deploy en Vercel
+
+1. Importa este repositorio en Vercel.
+2. Configura la variable de entorno `REACT_APP_API_URL` (puedes usar `.env.example` como referencia).
+3. Vercel ejecutará `npm run build` y publicará la carpeta `build`.
+4. El archivo `vercel.json` ya incluye un rewrite a `index.html` para que las rutas de React Router funcionen al recargar.

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 function Cart() {
   const { cart, addToCart, removeFromCart, clearCart } = useContext(CartContext);
@@ -28,7 +29,7 @@ function Cart() {
       }));
 
       await axios.post(
-        "https://sovm.onrender.com/api/orders",
+        `${API_BASE_URL}/api/orders`,
         { products: orderProducts, total },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

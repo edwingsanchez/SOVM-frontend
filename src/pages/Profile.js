@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 function Profile() {
   const { user, logout } = useContext(AuthContext);
@@ -10,7 +11,7 @@ function Profile() {
     const fetchOrders = async () => {
       if (!user) return;
       try {
-        const res = await axios.get("https://sovm.onrender.com/api/orders", {
+        const res = await axios.get(`${API_BASE_URL}/api/orders`, {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         setOrders(res.data);

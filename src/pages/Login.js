@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -12,7 +13,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://sovm.onrender.com/api/users/login", { email, password });
+      const res = await axios.post(`${API_BASE_URL}/api/users/login`, { email, password });
       setUser(res.data);
       navigate("/");
     } catch (err) {
