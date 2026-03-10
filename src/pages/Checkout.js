@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../config";
 import { useNavigate } from "react-router-dom";
 
 function Checkout() {
@@ -18,7 +19,7 @@ function Checkout() {
         products: cart.map(item => ({ product: item.product._id, quantity: item.quantity })),
         totalPrice: total
       };
-      await axios.post("https://sovm.onrender.com/api/orders", orderData, {
+      await axios.post(`${API_BASE_URL}/api/orders`, orderData, {
         headers: { Authorization: `Bearer ${user.token}` }
       });
       setCart([]);

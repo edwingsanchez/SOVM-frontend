@@ -1,6 +1,7 @@
 // src/pages/Home.js
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config";
 import { CartContext } from "../context/CartContext";
 
 function Home() {
@@ -11,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("https://sovm.onrender.com/api/products");
+        const res = await axios.get(`${API_BASE_URL}/api/products`);
         setProducts(res.data);
       } catch (err) {
         console.error("Error al obtener productos:", err);
